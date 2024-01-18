@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import react, {useEffect} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import { isMobile,  browserName} from 'react-device-detect';
+
+const App = ({})=>{
+
+
+    useEffect(()=>{
+        // const url = window.location.href.split('://');
+        const url = ["https","payboxapp.page.link/v8J8svz3eUZqTWHG8"];
+        if ( browserName === 'Facebook' && isMobile && url.length === 2) {
+          
+            window.location.replace(`intent://${url[1]}#Intent;scheme=${url[0]};package=com.android.chrome;end`);
+          }
+    else{
+        window.location.replace("https://payboxapp.page.link/v8J8svz3eUZqTWHG8")
+    }
+    },[browserName])
+
+    return <></>
+    
 }
 
 export default App;
